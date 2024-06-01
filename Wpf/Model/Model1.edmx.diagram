@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21eb17b3c5054668b33dc6c1d17cbcff" Name="Diagram1" ZoomLevel="69">
+        <EntityTypeShape EntityType="Resume_DBModel.AdditionalInfo" Width="1.5" PointX="3" PointY="15.75" />
+        <EntityTypeShape EntityType="Resume_DBModel.Categories" Width="1.5" PointX="3.75" PointY="4.625" />
+        <EntityTypeShape EntityType="Resume_DBModel.CheckedResumeUsers" Width="1.5" PointX="6" PointY="17.5" />
+        <EntityTypeShape EntityType="Resume_DBModel.EducationGrade" Width="1.5" PointX="0.75" PointY="19.625" />
+        <EntityTypeShape EntityType="Resume_DBModel.EducationPlace" Width="1.5" PointX="3" PointY="7.625" />
+        <EntityTypeShape EntityType="Resume_DBModel.EmployersInfo" Width="1.5" PointX="3.75" PointY="1.5" />
+        <EntityTypeShape EntityType="Resume_DBModel.Languages" Width="1.5" PointX="3.75" PointY="22.625" />
+        <EntityTypeShape EntityType="Resume_DBModel.LinkForPhoto" Width="1.5" PointX="3" PointY="10.5" />
+        <EntityTypeShape EntityType="Resume_DBModel.PreviousJobs" Width="1.5" PointX="3" PointY="32" />
+        <EntityTypeShape EntityType="Resume_DBModel.Role" Width="1.5" PointX="1.5" PointY="4.625" />
+        <EntityTypeShape EntityType="Resume_DBModel.SearchersInfo" Width="1.5" PointX="0.75" PointY="12.375" />
+        <EntityTypeShape EntityType="Resume_DBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Resume_DBModel.UserCategories" Width="1.5" PointX="6" PointY="11.5" />
+        <EntityTypeShape EntityType="Resume_DBModel.UserComputerSkills" Width="1.5" PointX="3" PointY="29.5" />
+        <EntityTypeShape EntityType="Resume_DBModel.UserCourses" Width="1.5" PointX="3" PointY="26.75" />
+        <EntityTypeShape EntityType="Resume_DBModel.UserEducationGrade" Width="1.5" PointX="3" PointY="19.5" />
+        <EntityTypeShape EntityType="Resume_DBModel.UserLanguages" Width="1.5" PointX="6" PointY="14.5" />
+        <EntityTypeShape EntityType="Resume_DBModel.Users" Width="1.5" PointX="1.5" PointY="1.375" />
+        <AssociationConnector Association="Resume_DBModel.FK_AdditionalInfo_SearchersInfo1" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserCategories_Categories" />
+        <AssociationConnector Association="Resume_DBModel.FK_CheckedResumeUsers_EmployersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_CheckedResumeUsers_SearchersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserEducationGrade_EducationGrade" />
+        <AssociationConnector Association="Resume_DBModel.FK_EducationPlace_SearchersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_EmployersInfo_Users" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserLanguages_Languages" />
+        <AssociationConnector Association="Resume_DBModel.FK_LinkForPhoto_SearchersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_PreviousJobs_SearchersInfo1" />
+        <AssociationConnector Association="Resume_DBModel.FK_Users_Role1" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserCategories_SearchersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserComputerSkills_SearchersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserCourses_SearchersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserEducationGrade_SearchersInfo" />
+        <AssociationConnector Association="Resume_DBModel.FK_UserLanguages_SearchersInfo" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
