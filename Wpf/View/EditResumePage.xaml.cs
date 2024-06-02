@@ -203,13 +203,25 @@ namespace Wpf.View
             {
                 driverlicense = "Есть";
             }
-            SearcherInfoVM searcher = new SearcherInfoVM();
-            searcher.EditSearcher(globaliduser, TBoxName.Text, TBoxSurname.Text, TBoxPatronimyc.Text, TBoxAdress.Text, TBoxPhone.Text, TBoxEmail.Text,
-                    TBoxCity.Text, BirthdayDate.SelectedDate.Value, TBoxFamily.Text, Convert.ToInt32(TBoxSeriaPassport.Text), Convert.ToInt32(TBoxNumberPassport.Text), children, gender, army,
-                    TBoxPersonal.Text, driverlicense, pastjobstextlist, pastjobsdatestartlist, pastjobsdateendlist, educationplacestextlist, educationplacesdatestartlist,
-                    educationplacesdateendlist, (int)EducationGradeComboBox.SelectedValue, languageslistint, courseslist, coursesdatelist, TBoxComputerSkills.Text, (int)CategoriesComboBox.SelectedValue);
-            MessageBox.Show("Вы успешно изменили резюме. Возвращение на главную страницу");
-            this.NavigationService.Navigate(new MainPage());
+            try
+            {
+                SearcherInfoVM searcher = new SearcherInfoVM();
+                if (searcher.CheckCreateResume(TBoxName.Text, TBoxSurname.Text, TBoxPatronimyc.Text, TBoxAdress.Text, TBoxPhone.Text, TBoxEmail.Text,
+                        TBoxCity.Text, TBoxFamily.Text, children, army, gender))
+                {
+                    searcher.EditSearcher(globaliduser, TBoxName.Text, TBoxSurname.Text, TBoxPatronimyc.Text, TBoxAdress.Text, TBoxPhone.Text, TBoxEmail.Text,
+                            TBoxCity.Text, BirthdayDate.SelectedDate.Value, TBoxFamily.Text, Convert.ToInt32(TBoxSeriaPassport.Text), Convert.ToInt32(TBoxNumberPassport.Text), children, gender, army,
+                            TBoxPersonal.Text, driverlicense, pastjobstextlist, pastjobsdatestartlist, pastjobsdateendlist, educationplacestextlist, educationplacesdatestartlist,
+                            educationplacesdateendlist, (int)EducationGradeComboBox.SelectedValue, languageslistint, courseslist, coursesdatelist, TBoxComputerSkills.Text, (int)CategoriesComboBox.SelectedValue);
+                    MessageBox.Show("Вы успешно изменили резюме. Возвращение на главную страницу");
+                    this.NavigationService.Navigate(new MainPage());
+                }
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void MaleRadioButtonChecked(object sender, RoutedEventArgs e)
