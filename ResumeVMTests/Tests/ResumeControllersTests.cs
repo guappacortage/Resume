@@ -78,7 +78,7 @@ namespace ResumeVMTests
         public void CheckAddAdditionalInfo_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddNewAdditionalInfo(searcherID, "Персональные данные", "Отсутствует");
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -91,7 +91,7 @@ namespace ResumeVMTests
         public void CheckEditAdditionalInfo_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditAdditionalInfo(searcherID, "Новые персональные данные","Есть");
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -107,7 +107,7 @@ namespace ResumeVMTests
             List<string> list = new List<string> {"Курс"};
             DateTime date = new DateTime(2010, 10, 5);
             List<DateTime> datelist = new List<DateTime> { date };
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddUserCourse(searcherID,list, datelist);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -123,7 +123,7 @@ namespace ResumeVMTests
             List<string> list = new List<string> { "Не курс" };
             DateTime date = new DateTime(2010, 9, 5);
             List<DateTime> datelist = new List<DateTime> { date };
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditUserCourse(searcherID, list, datelist);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -136,7 +136,7 @@ namespace ResumeVMTests
         public void CheckAddCheckedResume_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddCheckedResume(searcherID,1);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -150,7 +150,7 @@ namespace ResumeVMTests
         {
             byte[] image_bytes = new byte[0];
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddPhotoLink(searcherID, image_bytes);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -166,7 +166,7 @@ namespace ResumeVMTests
             List<string> list = new List<string> { "Место образования" };
             List<DateTime> datestart = new List<DateTime> { new DateTime(2010, 9, 5) };
             List<DateTime> dateend = new List<DateTime> { new DateTime(2010, 10, 5) };
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddEducationPlace(searcherID, list, datestart, dateend);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -182,7 +182,7 @@ namespace ResumeVMTests
             List<string> list = new List<string> { "Не место образования" };
             List<DateTime> datestart = new List<DateTime> { new DateTime(2010, 10, 5) };
             List<DateTime> dateend = new List<DateTime> { new DateTime(2010, 11, 5) };
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditEducationPlace(searcherID, list, datestart, dateend);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -209,7 +209,7 @@ namespace ResumeVMTests
             List<string> list = new List<string> { "Работа" };
             List<DateTime> datestart = new List<DateTime> {new DateTime(2010, 9, 5) };
             List<DateTime> dateend = new List<DateTime> { new DateTime(2010, 10, 5) };
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddPastJob(searcherID,list,datestart,dateend);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -225,7 +225,7 @@ namespace ResumeVMTests
             List<string> list = new List<string> { "Не работа" };
             List<DateTime> datestart = new List<DateTime> { new DateTime(2010, 10, 5) };
             List<DateTime> dateend = new List<DateTime> { new DateTime(2010, 11, 5) };
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditPastJobs(searcherID,list, datestart, dateend);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -238,7 +238,7 @@ namespace ResumeVMTests
         public void CheckAddUserCategory_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddUserCategory(searcherID, 1);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -251,7 +251,7 @@ namespace ResumeVMTests
         public void CheckEditUserCategory_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditUserCategory(searcherID, 2);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -264,7 +264,7 @@ namespace ResumeVMTests
         public void CheckAddComputerSkill_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddComputerSkill(searcherID, "Работа с БД на основе MSSQL");
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -277,7 +277,7 @@ namespace ResumeVMTests
         public void CheckEditComputerSkill_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditComputerSkill(searcherID, "Работа с визуальными редакторами");
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -290,7 +290,7 @@ namespace ResumeVMTests
         public void CheckAddEducationGrade_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddEducationGrade(searcherID, 1);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -303,7 +303,7 @@ namespace ResumeVMTests
         public void CheckEditEducationGrade_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditEducationGrade(searcherID, 2);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -317,7 +317,7 @@ namespace ResumeVMTests
         {
             List<int> list = new List<int> { 1 };
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckAddUserLanguages(searcherID,list);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -331,7 +331,7 @@ namespace ResumeVMTests
         {
             List<int> list = new List<int> { 2 };
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckEditUserLanguages(searcherID,list);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);
@@ -344,7 +344,7 @@ namespace ResumeVMTests
         public void CheckEditSearcher_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608127").FirstOrDefault().IdSearcher;
             DateTime date = new DateTime(2010, 10, 5);
             bool actual = ResumeVMLibrary.CheckEditSearcher(searcherID,"Андрей", "Андреев", "Андреевич", "Ул. Пушкина д.3", "+7505608155", "rabota@gmail.com", "Екатеринбург",
                 date, "Женат", 123, 123, "Отсутствуют", "Мужской", "Не служил");
@@ -360,7 +360,7 @@ namespace ResumeVMTests
         public void CheckDeleteSearcher_True()
         {
             Core db = new Core();
-            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdUser;
+            int searcherID = db.context.SearchersInfo.Where(x => x.Name == "Андрей" && x.Surname == "Андреев" && x.Patronymic == "Андреевич" && x.Phone == "+7505608155").FirstOrDefault().IdSearcher;
             bool actual = ResumeVMLibrary.CheckDeleteSearcher(searcherID);
             bool excepted = true;
             Assert.AreEqual(excepted, actual);

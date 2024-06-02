@@ -56,7 +56,7 @@ namespace ResumeVMTests.Library
             };
             db.context.SearchersInfo.Add(newSearcher);
             db.context.SaveChanges();
-            if (db.context.SearchersInfo.Where(x => x.IdUser == newSearcher.IdUser).Count() > 0)
+            if (db.context.SearchersInfo.Where(x => x.IdSearcher == newSearcher.IdSearcher).Count() > 0)
             {
                 return true;
             }
@@ -69,10 +69,10 @@ namespace ResumeVMTests.Library
         public static bool CheckDeleteSearcher(int idSearcher)
         {
             Core db = new Core();
-            var objSearchersinfo = db.context.SearchersInfo.Single(x => x.IdUser == idSearcher);
+            var objSearchersinfo = db.context.SearchersInfo.Single(x => x.IdSearcher == idSearcher);
             db.context.SearchersInfo.Remove(objSearchersinfo);
             db.context.SaveChanges();
-            if (db.context.SearchersInfo.Where(x => x.IdUser == idSearcher).Count() == 0)
+            if (db.context.SearchersInfo.Where(x => x.IdSearcher == idSearcher).Count() == 0)
             {
                 return true;
             }
@@ -86,7 +86,7 @@ namespace ResumeVMTests.Library
             int passportseria, int passportnumber, string children, string gender, string army)
         {
             Core db = new Core();
-            var objSearcher = db.context.SearchersInfo.Where(x => x.IdUser == iduser).FirstOrDefault();
+            var objSearcher = db.context.SearchersInfo.Where(x => x.IdSearcher == iduser).FirstOrDefault();
             objSearcher.Name = name;
             objSearcher.Surname = surname;
             objSearcher.Patronymic = patronymic;
@@ -102,7 +102,7 @@ namespace ResumeVMTests.Library
             objSearcher.PassportSeria = passportseria;
             objSearcher.FamilyStatus = familystatus;
             db.context.SaveChanges();
-            if (db.context.SearchersInfo.Where(x => x.IdUser == iduser && x.Surname == surname && x.Name == name && x.Patronymic == patronymic 
+            if (db.context.SearchersInfo.Where(x => x.IdSearcher == iduser && x.Surname == surname && x.Name == name && x.Patronymic == patronymic 
             && x.Address == adress && x.Phone == phone && x.Email == email && x.City == city).Count() > 0)
             {
                 return true;    
@@ -118,12 +118,12 @@ namespace ResumeVMTests.Library
             Core db = new Core();
             UserCategories newUserCategories = new UserCategories()
             {
-                IdUser = idSearcher,
+                IdSearcher = idSearcher,
                 IdCategory = categoryid
             };
             db.context.UserCategories.Add(newUserCategories);
             db.context.SaveChanges();
-            if (db.context.UserCategories.Where(x => x.IdUser == newUserCategories.IdUser).Count() > 0)
+            if (db.context.UserCategories.Where(x => x.IdSearcher == newUserCategories.IdSearcher).Count() > 0)
             {
                 return true;
             }
@@ -136,10 +136,10 @@ namespace ResumeVMTests.Library
         public static bool CheckEditUserCategory(int idSearcher, int categoryid)
         {
             Core db = new Core();
-            var objCategory = db.context.UserCategories.Where(x => x.IdUser == idSearcher).FirstOrDefault();
+            var objCategory = db.context.UserCategories.Where(x => x.IdSearcher == idSearcher).FirstOrDefault();
             objCategory.IdCategory = categoryid;
             db.context.SaveChanges();
-            if (db.context.UserCategories.Where(x => x.IdUser == idSearcher && x.IdCategory == categoryid).Count() > 0)
+            if (db.context.UserCategories.Where(x => x.IdSearcher == idSearcher && x.IdCategory == categoryid).Count() > 0)
             {
                 return true;
             }
@@ -156,14 +156,14 @@ namespace ResumeVMTests.Library
             {
                 UserCourses newCourse = new UserCourses()
                 {
-                    IdUser = iduser,
+                    IdSearcher = iduser,
                     Course = courseslist[i],
                     CourseDate = datecourseslist[i]
                 };
                 db.context.UserCourses.Add(newCourse);
                 db.context.SaveChanges();
             }
-            if (db.context.UserCourses.Where(x => x.IdUser == iduser).Count() > 0)
+            if (db.context.UserCourses.Where(x => x.IdSearcher == iduser).Count() > 0)
             {
                 return true;
             }
@@ -176,7 +176,7 @@ namespace ResumeVMTests.Library
         public static bool CheckEditUserCourse(int iduser, List<string> courseslist, List<DateTime> datecourseslist)
         {
             Core db = new Core();
-            var objCourses = db.context.UserCourses.Where(x => x.IdUser == iduser).ToList();
+            var objCourses = db.context.UserCourses.Where(x => x.IdSearcher == iduser).ToList();
             for (int i = 0; i < objCourses.Count; i++)
             {
                 objCourses[i].Course = courseslist[i];
@@ -201,7 +201,7 @@ namespace ResumeVMTests.Library
             {
                 EducationPlace newEducationPlace = new EducationPlace()
                 {
-                    IdUser = searherId,
+                    IdSearcher = searherId,
                     PlaceOfEducation = textseducationplaces[i],
                     DateOfStartEducation = liststarteducationplaces[i],
                     DateOfEndEducation = listendeducationplaces[i]
@@ -209,7 +209,7 @@ namespace ResumeVMTests.Library
                 db.context.EducationPlace.Add(newEducationPlace);
                 db.context.SaveChanges();
             }
-            if (db.context.EducationPlace.Where(x => x.IdUser == searherId).Count() > 0)
+            if (db.context.EducationPlace.Where(x => x.IdSearcher == searherId).Count() > 0)
             {
                 return true;
             }
@@ -222,7 +222,7 @@ namespace ResumeVMTests.Library
         public static bool CheckEditEducationPlace(int searherId, List<string> textseducationplaces, List<DateTime> liststarteducationplaces, List<DateTime> listendeducationplaces)
         {
             Core db = new Core();
-            var objEducationPlaces = db.context.EducationPlace.Where(x => x.IdUser == searherId).ToList();
+            var objEducationPlaces = db.context.EducationPlace.Where(x => x.IdSearcher == searherId).ToList();
             for (int i = 0; i < objEducationPlaces.Count; i++)
             {
                 objEducationPlaces[i].PlaceOfEducation = textseducationplaces[i];
@@ -231,7 +231,7 @@ namespace ResumeVMTests.Library
             }
             db.context.SaveChanges();
             string educationplace = textseducationplaces[0];
-            if (db.context.EducationPlace.Where(x => x.IdUser == searherId && x.PlaceOfEducation == educationplace).Count() > 0)
+            if (db.context.EducationPlace.Where(x => x.IdSearcher == searherId && x.PlaceOfEducation == educationplace).Count() > 0)
             {
                 return true;
             }
@@ -248,7 +248,7 @@ namespace ResumeVMTests.Library
             {
                 PreviousJobs newPastJob = new PreviousJobs()
                 {
-                    IdUser = searherId,
+                    IdSearcher = searherId,
                     NameOfPreviousJob = textspastjobs[i],
                     DateOfStartPreviousJob = liststartjob[i],
                     DateOfEndPreviousJob = listendjob[i]
@@ -256,7 +256,7 @@ namespace ResumeVMTests.Library
                 db.context.PreviousJobs.Add(newPastJob);
                 db.context.SaveChanges();
             }
-            if (db.context.PreviousJobs.Where(x => x.IdUser == searherId).Count() > 0)
+            if (db.context.PreviousJobs.Where(x => x.IdSearcher == searherId).Count() > 0)
             {
                 return true;
             }
@@ -269,7 +269,7 @@ namespace ResumeVMTests.Library
         public static bool CheckEditPastJobs(int searherId, List<string> textspastjobs, List<DateTime> liststartjob, List<DateTime> listendjob)
         {
             Core db = new Core();
-            var objPastJobs = db.context.PreviousJobs.Where(x => x.IdUser == searherId).ToList();
+            var objPastJobs = db.context.PreviousJobs.Where(x => x.IdSearcher == searherId).ToList();
             for (int i = 0; i < objPastJobs.Count; i++)
             {
                 objPastJobs[i].NameOfPreviousJob = textspastjobs[i];
@@ -277,7 +277,7 @@ namespace ResumeVMTests.Library
                 objPastJobs[i].DateOfEndPreviousJob = listendjob[i];
             }
             db.context.SaveChanges();
-            if (db.context.PreviousJobs.Where(x => x.IdUser == searherId && x.NameOfPreviousJob == textspastjobs[0]).Count() > 0)
+            if (db.context.PreviousJobs.Where(x => x.IdSearcher == searherId && x.NameOfPreviousJob == textspastjobs[0]).Count() > 0)
             {
                 return true;
             }
@@ -292,12 +292,12 @@ namespace ResumeVMTests.Library
             Core db = new Core();
             LinkForPhoto newPhoto = new LinkForPhoto()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 PhotoLink = imagecode
             };
             db.context.LinkForPhoto.Add(newPhoto);
             db.context.SaveChanges();
-            if (db.context.LinkForPhoto.Where(x => x.IdUser == iduser).Count() > 0)
+            if (db.context.LinkForPhoto.Where(x => x.IdSearcher == iduser).Count() > 0)
             {
                 return true;
             }
@@ -312,13 +312,13 @@ namespace ResumeVMTests.Library
             Core db = new Core();
             AdditionalInfo newAdditionalInfo = new AdditionalInfo()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 PersonalQualities = personal,
                 DriverLicense = driverlicense
             };
             db.context.AdditionalInfo.Add(newAdditionalInfo);
             db.context.SaveChanges();
-            if (db.context.AdditionalInfo.Where(x => x.IdUser == iduser).Count() > 0)
+            if (db.context.AdditionalInfo.Where(x => x.IdSearcher == iduser).Count() > 0)
             {
                 return true;
             }
@@ -331,7 +331,7 @@ namespace ResumeVMTests.Library
         public static bool CheckEditAdditionalInfo(int iduser, string personal, string driverlicense)
         {
             Core db = new Core();
-            var objAddInfo = db.context.AdditionalInfo.Where(x => x.IdUser == iduser).SingleOrDefault();
+            var objAddInfo = db.context.AdditionalInfo.Where(x => x.IdSearcher == iduser).SingleOrDefault();
             if (objAddInfo != null)
             {
                 objAddInfo.DriverLicense = driverlicense;
@@ -341,14 +341,14 @@ namespace ResumeVMTests.Library
             {
                 AdditionalInfo newAdditionalInfo = new AdditionalInfo()
                 {
-                    IdUser = iduser,
+                    IdSearcher = iduser,
                     PersonalQualities = personal,
                     DriverLicense = driverlicense
                 };
                 db.context.AdditionalInfo.Add(newAdditionalInfo);
             }
             db.context.SaveChanges();
-            if (db.context.AdditionalInfo.Where(x => x.IdUser == iduser && x.PersonalQualities == personal).Count() > 0)
+            if (db.context.AdditionalInfo.Where(x => x.IdSearcher == iduser && x.PersonalQualities == personal).Count() > 0)
             {
                 return true;
             }
@@ -363,12 +363,12 @@ namespace ResumeVMTests.Library
             Core db = new Core();
             CheckedResumeUsers checkedResumeUsers = new CheckedResumeUsers()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 IdEmployer = idemployer,
             };
             db.context.CheckedResumeUsers.Add(checkedResumeUsers);
             db.context.SaveChanges();
-            if (db.context.CheckedResumeUsers.Where(x => x.IdUser == iduser).Count() > 0)
+            if (db.context.CheckedResumeUsers.Where(x => x.IdSearcher == iduser).Count() > 0)
             {
                 db.context.CheckedResumeUsers.Remove(checkedResumeUsers);
                 return true;
@@ -410,12 +410,12 @@ namespace ResumeVMTests.Library
             Core db = new Core();
             UserComputerSkills newUser = new UserComputerSkills()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 ComputerSkill = skill
             };
             db.context.UserComputerSkills.Add(newUser);
             db.context.SaveChanges();
-            if (db.context.UserComputerSkills.Where(x => x.IdUser == iduser).Count() > 0)
+            if (db.context.UserComputerSkills.Where(x => x.IdSearcher == iduser).Count() > 0)
             {
                 return true;
             }
@@ -428,7 +428,7 @@ namespace ResumeVMTests.Library
         public static bool CheckEditComputerSkill(int iduser, string skill)
         {
             Core db = new Core();
-            var objComputerSkills = db.context.UserComputerSkills.Where(x => x.IdUser == iduser).SingleOrDefault();
+            var objComputerSkills = db.context.UserComputerSkills.Where(x => x.IdSearcher == iduser).SingleOrDefault();
             if (objComputerSkills != null)
             {
                 objComputerSkills.ComputerSkill = skill;
@@ -437,13 +437,13 @@ namespace ResumeVMTests.Library
             {
                 UserComputerSkills newComputerSkill = new UserComputerSkills()
                 {
-                    IdUser = iduser,
+                    IdSearcher = iduser,
                     ComputerSkill = skill
                 };
                 db.context.UserComputerSkills.Add(newComputerSkill);
             }
             db.context.SaveChanges();
-            if (db.context.UserComputerSkills.Where(x => x.IdUser == iduser && x.ComputerSkill == skill).Count() > 0)
+            if (db.context.UserComputerSkills.Where(x => x.IdSearcher == iduser && x.ComputerSkill == skill).Count() > 0)
             {
                 return true;
             }
@@ -458,12 +458,12 @@ namespace ResumeVMTests.Library
             Core db = new Core();
             UserEducationGrade newEducationGrade = new UserEducationGrade()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 IdEducationGrade = ideducationgrade
             };
             db.context.UserEducationGrade.Add(newEducationGrade);
             db.context.SaveChanges();
-            if (db.context.UserEducationGrade.Where(x => x.IdUser == iduser).Count() > 0)
+            if (db.context.UserEducationGrade.Where(x => x.IdSearcher == iduser).Count() > 0)
             {
                 return true;
             }
@@ -476,10 +476,10 @@ namespace ResumeVMTests.Library
         public static bool CheckEditEducationGrade(int iduser, int ideducationgrade)
         {
             Core db = new Core();
-            var objEducationGrade = db.context.UserEducationGrade.Where(x => x.IdUser == iduser).FirstOrDefault();
+            var objEducationGrade = db.context.UserEducationGrade.Where(x => x.IdSearcher == iduser).FirstOrDefault();
             objEducationGrade.IdEducationGrade = ideducationgrade;
             db.context.SaveChanges();
-            if (db.context.UserEducationGrade.Where(x => x.IdUser == iduser && x.IdEducationGrade == ideducationgrade).Count() > 0)
+            if (db.context.UserEducationGrade.Where(x => x.IdSearcher == iduser && x.IdEducationGrade == ideducationgrade).Count() > 0)
             {
                 return true;
             }
@@ -496,13 +496,13 @@ namespace ResumeVMTests.Library
             {
                 UserLanguages newUser = new UserLanguages()
                 {
-                    UserId = iduser,
+                    IdSearcher = iduser,
                     LanguagesId = languageid
                 };
                 db.context.UserLanguages.Add(newUser);
                 db.context.SaveChanges();
             }
-            if (db.context.UserLanguages.Where(x => x.UserId == iduser).Count() > 0)
+            if (db.context.UserLanguages.Where(x => x.IdSearcher == iduser).Count() > 0)
             {
                 return true;
             }
@@ -515,14 +515,14 @@ namespace ResumeVMTests.Library
         public static bool CheckEditUserLanguages(int iduser, List<int> languageidslist)
         {
             Core db = new Core();
-            var objLanguages = db.context.UserLanguages.Where(x => x.UserId == iduser).ToList();
+            var objLanguages = db.context.UserLanguages.Where(x => x.IdSearcher == iduser).ToList();
             for (int i = 0; i < objLanguages.Count; i++)
             {
                 objLanguages[i].LanguagesId = languageidslist[i];
             }
             db.context.SaveChanges();
             int language = languageidslist[0];
-            if (db.context.UserLanguages.Where(x => x.UserId == iduser && x.LanguagesId == language).Count() > 0)
+            if (db.context.UserLanguages.Where(x => x.IdSearcher == iduser && x.LanguagesId == language).Count() > 0)
             {
                 return true;
             }
