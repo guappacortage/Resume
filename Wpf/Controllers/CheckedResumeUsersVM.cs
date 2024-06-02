@@ -14,7 +14,7 @@ namespace Wpf.Controllers
         {
             CheckedResumeUsers checkedResumeUsers = new CheckedResumeUsers()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 IdEmployer = idemployer,
             };
             db.context.CheckedResumeUsers.Add(checkedResumeUsers);

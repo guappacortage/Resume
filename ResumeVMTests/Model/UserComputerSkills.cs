@@ -15,7 +15,7 @@ namespace ResumeVMTests.Model
     public partial class UserComputerSkills
     {
         public int IdUserComputerSkills { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public string ComputerSkill { get; set; }
     
         public virtual SearchersInfo SearchersInfo { get; set; }

@@ -15,7 +15,7 @@ namespace Wpf.Model
     public partial class UserEducationGrade
     {
         public int UserEducationGradeId { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public int IdEducationGrade { get; set; }
     
         public virtual EducationGrade EducationGrade { get; set; }

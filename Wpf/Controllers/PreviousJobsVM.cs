@@ -16,7 +16,7 @@ namespace Wpf.Controllers
             {
                 PreviousJobs newPastJob = new PreviousJobs()
                 {
-                    IdUser = searherId,
+                    IdSearcher = searherId,
                     NameOfPreviousJob = textspastjobs[i],
                     DateOfStartPreviousJob = liststartjob[i],
                     DateOfEndPreviousJob = listendjob[i]
@@ -27,7 +27,7 @@ namespace Wpf.Controllers
         }
         public void EditPastJobs(int iduser, List<string> textspastjobs, List<DateTime> liststartjob, List<DateTime> listendjob)
         {
-            var objPastJobs = db.context.PreviousJobs.Where(x => x.IdUser == iduser).ToList();
+            var objPastJobs = db.context.PreviousJobs.Where(x => x.IdSearcher == iduser).ToList();
             for (int i = 0; i < objPastJobs.Count; i++)
             {
                 objPastJobs[i].NameOfPreviousJob = textspastjobs[i];

@@ -17,7 +17,7 @@ namespace Wpf.Controllers
             {
                 UserCourses newCourse = new UserCourses()
                 {
-                    IdUser = iduser,
+                    IdSearcher = iduser,
                     Course = courseslist[i],
                     CourseDate = datecourseslist[i]
                 };
@@ -28,7 +28,7 @@ namespace Wpf.Controllers
 
         public void EditCourses(int iduser, List<string> courseslist, List<DateTime> datecourseslist)
         {
-            var objCourses = db.context.UserCourses.Where(x => x.IdUser == iduser).ToList();
+            var objCourses = db.context.UserCourses.Where(x => x.IdSearcher == iduser).ToList();
             for (int i = 0; i < objCourses.Count; i++)
             {
                 objCourses[i].Course = courseslist[i];

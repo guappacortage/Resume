@@ -14,7 +14,7 @@ namespace Wpf.Controllers
         {
             UserCategories newUserCategories = new UserCategories()
             {
-                IdUser  = iduser,
+                IdSearcher = iduser,
                 IdCategory = categoryid
             };
             db.context.UserCategories.Add(newUserCategories);
@@ -23,7 +23,7 @@ namespace Wpf.Controllers
 
         public void EditUserCategory(int iduser, int categoryid)
         {
-            var objCategory = db.context.UserCategories.Where(x => x.IdUser == iduser).FirstOrDefault();
+            var objCategory = db.context.UserCategories.Where(x => x.IdSearcher == iduser).FirstOrDefault();
             objCategory.IdCategory = categoryid;
             db.context.SaveChanges();
         }

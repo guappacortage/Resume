@@ -46,5 +46,6 @@
                 </ListView>
             </StackPanel>
         </ScrollViewer>
+        <Button Name="BtnBack" Click="BtnBack_Click" Content="Назад" Width="130px" FontSize="14px" Height="35px" Margin="0 10 30 0" Background="#5269c2" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
     </Grid>
 </Page>

@@ -16,7 +16,7 @@ namespace Wpf.Controllers
             {
                 EducationPlace newEducationPlace = new EducationPlace()
                 {
-                    IdUser = searherId,
+                    IdSearcher = searherId,
                     PlaceOfEducation = textseducationplaces[i],
                     DateOfStartEducation = liststarteducationplaces[i],
                     DateOfEndEducation = listendeducationplaces[i]
@@ -27,7 +27,7 @@ namespace Wpf.Controllers
         }
         public void EditEducationPlaces(int searherId, List<string> textseducationplaces, List<DateTime> liststarteducationplaces, List<DateTime> listendeducationplaces)
         {
-            var objEducationPlaces = db.context.EducationPlace.Where(x => x.IdUser == searherId).ToList();
+            var objEducationPlaces = db.context.EducationPlace.Where(x => x.IdSearcher == searherId).ToList();
             for (int i = 0; i < objEducationPlaces.Count; i++)
             {
                 objEducationPlaces[i].PlaceOfEducation = textseducationplaces[i];

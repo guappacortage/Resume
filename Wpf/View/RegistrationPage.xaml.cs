@@ -23,7 +23,6 @@ namespace Wpf.View
     public partial class RegistrationPage : Page
     {
         Core db = new Core();
-        List<Users> arrayUsers;
         public RegistrationPage()
         {
             InitializeComponent();

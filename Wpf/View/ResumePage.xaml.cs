@@ -44,15 +44,15 @@ namespace Wpf.View
         public ResumePage(int idSearcher)
         {
             InitializeComponent();
-            photolink = db.context.LinkForPhoto.Where(x => x.IdUser == idSearcher).FirstOrDefault();
-            educationgradeuser = db.context.UserEducationGrade.Where(x => x.IdUser == idSearcher).FirstOrDefault();
+            photolink = db.context.LinkForPhoto.Where(x => x.IdSearcher == idSearcher).FirstOrDefault();
+            educationgradeuser = db.context.UserEducationGrade.Where(x => x.IdSearcher == idSearcher).FirstOrDefault();
             educationgrade = db.context.EducationGrade.Where(x => x.IdEducationGrade == educationgradeuser.IdEducationGrade).FirstOrDefault();
-            userCategory = db.context.UserCategories.Where(x => x.IdUser == idSearcher).FirstOrDefault();
+            userCategory = db.context.UserCategories.Where(x => x.IdSearcher == idSearcher).FirstOrDefault();
             category = db.context.Categories.Where(x => x.IdCategory == userCategory.IdCategory).FirstOrDefault();
-            userLanguages = db.context.UserLanguages.Where(x => x.UserId == idSearcher).ToList();
-            addInfo = db.context.AdditionalInfo.Where(x => x.IdUser == idSearcher).FirstOrDefault();
-            userCourses = db.context.UserCourses.Where(x => x.IdUser == idSearcher).ToList();
-            userComputerSkill = db.context.UserComputerSkills.Where(x => x.IdUser == idSearcher).FirstOrDefault();
+            userLanguages = db.context.UserLanguages.Where(x => x.IdSearcher == idSearcher).ToList();
+            addInfo = db.context.AdditionalInfo.Where(x => x.IdSearcher == idSearcher).FirstOrDefault();
+            userCourses = db.context.UserCourses.Where(x => x.IdSearcher == idSearcher).ToList();
+            userComputerSkill = db.context.UserComputerSkills.Where(x => x.IdSearcher == idSearcher).FirstOrDefault();
             List<Model.Languages> languagesoutputlist = new List<Model.Languages>();
             string langoutput = "";
             foreach (var userlang in userLanguages)
@@ -70,13 +70,13 @@ namespace Wpf.View
                     langoutput = langoutput + ", " + languagesoutputlist[i].TitleLanguage;
                 }
             }
-            prevJobs = db.context.PreviousJobs.Where(x => x.IdUser == idSearcher).ToList();
-            educationPlaces = db.context.EducationPlace.Where(x => x.IdUser == idSearcher).ToList();
+            prevJobs = db.context.PreviousJobs.Where(x => x.IdSearcher == idSearcher).ToList();
+            educationPlaces = db.context.EducationPlace.Where(x => x.IdSearcher == idSearcher).ToList();
             if (photolink.PhotoLink != null)
             {
                 ResumeImage.Source = ByteImage.Convert(ByteImage.GetImageFromByteArray(photolink.PhotoLink));
             }
-            searchersInfo = db.context.SearchersInfo.Where(x => x.IdUser == idSearcher).FirstOrDefault();
+            searchersInfo = db.context.SearchersInfo.Where(x => x.IdSearcher == idSearcher).FirstOrDefault();
             TBlockName.Text = searchersInfo.Name;
             TBlockSurname.Text = searchersInfo.Surname;
             TBlockPatronimyc.Text = searchersInfo.Patronymic;
@@ -242,9 +242,8 @@ namespace Wpf.View
                         + Environment.NewLine + $"Знаю языки: {TBlockLanguages.Text} " + Environment.NewLine + $"Сфера деятельности: {TBlockCategories.Text} " + Environment.NewLine 
                         + $"{pastjobs}" + $"{educationplaces}" + $"{courses}";
 
-
                     //Save the document
-                    object filename = $@"C:\Users\User\Desktop\Резюме {TBlockName.Text} {TBlockSurname.Text} {TBlockPatronimyc.Text}.docx";
+                    object filename = $@"C:\Users\Public\Резюме {TBlockName.Text} {TBlockSurname.Text} {TBlockPatronimyc.Text}.docx";
                     document.SaveAs(ref filename);
                     document.Close(ref missing, ref missing, ref missing);
                     document = null;
@@ -260,6 +259,14 @@ namespace Wpf.View
         private void BtnSaveWord_Click(object sender, RoutedEventArgs e)
         {
             CreateDocument();
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace ResumeVMTests.Model
     {
         public int IdUserChecked { get; set; }
         public int IdEmployer { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
     
         public virtual EmployersInfo EmployersInfo { get; set; }
         public virtual SearchersInfo SearchersInfo { get; set; }

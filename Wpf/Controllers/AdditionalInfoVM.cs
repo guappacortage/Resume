@@ -15,7 +15,7 @@ namespace Wpf.Controllers
         {
             AdditionalInfo newAdditionalInfo = new AdditionalInfo()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 PersonalQualities = personal,
                 DriverLicense = driverlicense
             };
@@ -25,7 +25,7 @@ namespace Wpf.Controllers
 
         public void EditAdditionalInfo(int iduser, string personal, string driverlicense)
         {
-            var objAddInfo = db.context.AdditionalInfo.Where(x => x.IdUser == iduser).SingleOrDefault();
+            var objAddInfo = db.context.AdditionalInfo.Where(x => x.IdSearcher == iduser).SingleOrDefault();
             if (objAddInfo != null)
             {
                 objAddInfo.DriverLicense = driverlicense;
@@ -35,7 +35,7 @@ namespace Wpf.Controllers
             {
                 AdditionalInfo newAdditionalInfo = new AdditionalInfo()
                 {
-                    IdUser = iduser,
+                    IdSearcher = iduser,
                     PersonalQualities = personal,
                     DriverLicense = driverlicense
                 };

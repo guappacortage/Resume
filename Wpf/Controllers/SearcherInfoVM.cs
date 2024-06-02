@@ -86,7 +86,7 @@ namespace Wpf.Controllers
             };
             db.context.SearchersInfo.Add(newSearcher);
             db.context.SaveChanges();
-            int IdSearcher = newSearcher.IdUser;
+            int IdSearcher = newSearcher.IdSearcher;
             UserComputerSkillsVM newComputesSkills = new UserComputerSkillsVM();
             newComputesSkills.AddNewComputerSkills(IdSearcher, skill);
             AdditionalInfoVM addAdditionalInfo = new AdditionalInfoVM();
@@ -135,7 +135,7 @@ namespace Wpf.Controllers
             List<string> educationplacestext, List<DateTime> liststartdateeducationplaces, List<DateTime> listenddateeducationplaces, int idgrade, List<int> languagesid, List<string> coursetext,
             List<DateTime> coursedate, string skill, int idcategory)
         {
-            var objSearcher = db.context.SearchersInfo.Where(x => x.IdUser == iduser).FirstOrDefault();
+            var objSearcher = db.context.SearchersInfo.Where(x => x.IdSearcher == iduser).FirstOrDefault();
             objSearcher.Name = name;
             objSearcher.Surname = surname;
             objSearcher.Patronymic = patronymic;
@@ -177,14 +177,14 @@ namespace Wpf.Controllers
 
         public void DeleteSearcher(int idSearcher)
         {
-            var objSearchersinfo = db.context.SearchersInfo.Single(x => x.IdUser == idSearcher);
+            var objSearchersinfo = db.context.SearchersInfo.Single(x => x.IdSearcher == idSearcher);
             db.context.SearchersInfo.Remove(objSearchersinfo);
             db.context.SaveChanges();
         }
 
         public void EditStatus(int idSearcher, int statusid)
         {
-            var objSearchersinfo = db.context.SearchersInfo.Single(x => x.IdUser == idSearcher);
+            var objSearchersinfo = db.context.SearchersInfo.Single(x => x.IdSearcher == idSearcher);
             objSearchersinfo.Status = statusid;
             CheckedResumeUsersVM checkedResumeUsers = new CheckedResumeUsersVM();
             checkedResumeUsers.AddNewCheckedResume(idSearcher, db.context.EmployersInfo.Where(x=> x.IdUser == Properties.Settings.Default.idClient).FirstOrDefault().IdEmployer);

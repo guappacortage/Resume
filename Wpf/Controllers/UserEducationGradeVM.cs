@@ -14,7 +14,7 @@ namespace Wpf.Controllers
         {
             UserEducationGrade newEducationGrade = new UserEducationGrade()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 IdEducationGrade = ideducationgrade
             };
             db.context.UserEducationGrade.Add(newEducationGrade);
@@ -23,7 +23,7 @@ namespace Wpf.Controllers
 
         public void EditEducationGrade(int iduser, int ideducationgrade)
         {
-            var objEducationGrade = db.context.UserEducationGrade.Where(x => x.IdUser == iduser).FirstOrDefault();
+            var objEducationGrade = db.context.UserEducationGrade.Where(x => x.IdSearcher == iduser).FirstOrDefault();
             objEducationGrade.IdEducationGrade = ideducationgrade;
             db.context.SaveChanges();
         }

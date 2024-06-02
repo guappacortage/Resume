@@ -15,7 +15,7 @@ namespace ResumeVMTests.Model
     public partial class UserCourses
     {
         public int IdUserCourse { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public string Course { get; set; }
         public System.DateTime CourseDate { get; set; }
     

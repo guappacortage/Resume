@@ -53,16 +53,16 @@ namespace Wpf.View
             EducationGradeComboBox.ItemsSource = educationGrades;
             CategoriesComboBox.ItemsSource = categories;
             globaliduser = iduser;
-            searchersInfo = db.context.SearchersInfo.Where(x => x.IdUser == iduser).ToList();
-            pastJobs = db.context.PreviousJobs.Where(x => x.IdUser == iduser).ToList();
-            educationPlaces = db.context.EducationPlace.Where(x => x.IdUser == iduser).ToList();
-            courses = db.context.UserCourses.Where(x => x.IdUser == iduser).ToList();
-            languages = db.context.UserLanguages.Where(x => x.UserId == iduser).ToList();
-            addinfo = db.context.AdditionalInfo.Where(x => x.IdUser == iduser).ToList();
-            computerSkills = db.context.UserComputerSkills.Where(x => x.IdUser == iduser).ToList();
-            userEdGrade = db.context.UserEducationGrade.Where(x => x.IdUser == iduser).FirstOrDefault();
+            searchersInfo = db.context.SearchersInfo.Where(x => x.IdSearcher == iduser).ToList();
+            pastJobs = db.context.PreviousJobs.Where(x => x.IdSearcher == iduser).ToList();
+            educationPlaces = db.context.EducationPlace.Where(x => x.IdSearcher == iduser).ToList();
+            courses = db.context.UserCourses.Where(x => x.IdSearcher == iduser).ToList();
+            languages = db.context.UserLanguages.Where(x => x.IdSearcher == iduser).ToList();
+            addinfo = db.context.AdditionalInfo.Where(x => x.IdSearcher == iduser).ToList();
+            computerSkills = db.context.UserComputerSkills.Where(x => x.    IdSearcher == iduser).ToList();
+            userEdGrade = db.context.UserEducationGrade.Where(x => x.IdSearcher == iduser).FirstOrDefault();
             EducationGradeComboBox.SelectedValue = userEdGrade.IdEducationGrade;
-            userCategory = db.context.UserCategories.Where(x => x.IdUser == iduser).FirstOrDefault();
+            userCategory = db.context.UserCategories.Where(x => x.  IdSearcher == iduser).FirstOrDefault();
             CategoriesComboBox.SelectedValue = userCategory.IdCategory;
             foreach (var item in searchersInfo)
             {

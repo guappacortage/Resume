@@ -57,5 +57,13 @@ namespace Wpf.View
         {
             this.NavigationService.Navigate(new AddEmployerPage());
         }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
+        }
     }
 }

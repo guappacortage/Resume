@@ -10,7 +10,7 @@
             <PropertyRef Name="IdAddInfo" />
           </Key>
           <Property Name="IdAddInfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="PersonalQualities" Type="nvarchar" MaxLength="400" />
           <Property Name="DriverLicense" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -27,7 +27,7 @@
           </Key>
           <Property Name="IdUserChecked" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdEmployer" Type="int" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="EducationGrade">
           <Key>
@@ -41,7 +41,7 @@
             <PropertyRef Name="IdEducatePlace" />
           </Key>
           <Property Name="IdEducatePlace" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="PlaceOfEducation" Type="nvarchar" MaxLength="50" />
           <Property Name="DateOfStartEducation" Type="date" />
           <Property Name="DateOfEndEducation" Type="date" />
@@ -51,14 +51,14 @@
             <PropertyRef Name="IdEmployer" />
           </Key>
           <Property Name="IdEmployer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameOfOrganization" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameOfOrganization" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdUser" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Languages">
           <Key>
             <PropertyRef Name="IdLanguage" />
           </Key>
-          <Property Name="IdLanguage" Type="int" Nullable="false" />
+          <Property Name="IdLanguage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TitleLanguage" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="LinkForPhoto">
@@ -66,7 +66,7 @@
             <PropertyRef Name="IdPhotoLink" />
           </Key>
           <Property Name="IdPhotoLink" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="PhotoLink" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="PreviousJobs">
@@ -74,7 +74,7 @@
             <PropertyRef Name="IdPrevJob" />
           </Key>
           <Property Name="IdPrevJob" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="DateOfStartPreviousJob" Type="date" />
           <Property Name="DateOfEndPreviousJob" Type="date" />
           <Property Name="NameOfPreviousJob" Type="nvarchar" MaxLength="50" />
@@ -88,9 +88,9 @@
         </EntityType>
         <EntityType Name="SearchersInfo">
           <Key>
-            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="IdSearcher" />
           </Key>
-          <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
@@ -122,7 +122,7 @@
             <PropertyRef Name="IdUserCategory" />
           </Key>
           <Property Name="IdUserCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="IdCategory" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="UserComputerSkills">
@@ -130,7 +130,7 @@
             <PropertyRef Name="IdUserComputerSkills" />
           </Key>
           <Property Name="IdUserComputerSkills" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="ComputerSkill" Type="nvarchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="UserCourses">
@@ -138,7 +138,7 @@
             <PropertyRef Name="IdUserCourse" />
           </Key>
           <Property Name="IdUserCourse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="Course" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="CourseDate" Type="date" Nullable="false" />
         </EntityType>
@@ -147,7 +147,7 @@
             <PropertyRef Name="UserEducationGradeId" />
           </Key>
           <Property Name="UserEducationGradeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="IdEducationGrade" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="UserLanguages">
@@ -155,7 +155,7 @@
             <PropertyRef Name="IdUserLanguage" />
           </Key>
           <Property Name="IdUserLanguage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="IdSearcher" Type="int" Nullable="false" />
           <Property Name="LanguagesId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
@@ -174,14 +174,14 @@
           <End Role="AdditionalInfo" Type="Self.AdditionalInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="AdditionalInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CheckedResumeUsers_EmployersInfo">
+        <Association Name="FK_CheckedResumeUsers_EmployersInfo1">
           <End Role="EmployersInfo" Type="Self.EmployersInfo" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -202,10 +202,10 @@
           <End Role="CheckedResumeUsers" Type="Self.CheckedResumeUsers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="CheckedResumeUsers">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -216,10 +216,10 @@
           <End Role="EducationPlace" Type="Self.EducationPlace" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="EducationPlace">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -244,10 +244,10 @@
           <End Role="LinkForPhoto" Type="Self.LinkForPhoto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="LinkForPhoto">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -258,10 +258,10 @@
           <End Role="PreviousJobs" Type="Self.PreviousJobs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="PreviousJobs">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -284,10 +284,10 @@
           <End Role="UserCategories" Type="Self.UserCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserCategories">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -298,10 +298,10 @@
           <End Role="UserComputerSkills" Type="Self.UserComputerSkills" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserComputerSkills">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -312,10 +312,10 @@
           <End Role="UserCourses" Type="Self.UserCourses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserCourses">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -338,10 +338,10 @@
           <End Role="UserEducationGrade" Type="Self.UserEducationGrade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserEducationGrade">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -366,10 +366,10 @@
           <End Role="UserLanguages" Type="Self.UserLanguages" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserLanguages">
-              <PropertyRef Name="UserId" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -408,7 +408,7 @@
             <End Role="SearchersInfo" EntitySet="SearchersInfo" />
             <End Role="AdditionalInfo" EntitySet="AdditionalInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK_CheckedResumeUsers_EmployersInfo" Association="Self.FK_CheckedResumeUsers_EmployersInfo">
+          <AssociationSet Name="FK_CheckedResumeUsers_EmployersInfo1" Association="Self.FK_CheckedResumeUsers_EmployersInfo1">
             <End Role="EmployersInfo" EntitySet="EmployersInfo" />
             <End Role="CheckedResumeUsers" EntitySet="CheckedResumeUsers" />
           </AssociationSet>
@@ -500,7 +500,7 @@
             <End Role="Categories" EntitySet="Categories" />
             <End Role="UserCategories" EntitySet="UserCategories" />
           </AssociationSet>
-          <AssociationSet Name="FK_CheckedResumeUsers_EmployersInfo" Association="Resume_DBModel.FK_CheckedResumeUsers_EmployersInfo">
+          <AssociationSet Name="FK_CheckedResumeUsers_EmployersInfo1" Association="Resume_DBModel.FK_CheckedResumeUsers_EmployersInfo1">
             <End Role="EmployersInfo" EntitySet="EmployersInfo" />
             <End Role="CheckedResumeUsers" EntitySet="CheckedResumeUsers" />
           </AssociationSet>
@@ -562,7 +562,7 @@
             <PropertyRef Name="IdAddInfo" />
           </Key>
           <Property Name="IdAddInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="PersonalQualities" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="DriverLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_AdditionalInfo_SearchersInfo1" FromRole="AdditionalInfo" ToRole="SearchersInfo" />
@@ -581,8 +581,8 @@
           </Key>
           <Property Name="IdUserChecked" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdEmployer" Type="Int32" Nullable="false" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EmployersInfo" Relationship="Resume_DBModel.FK_CheckedResumeUsers_EmployersInfo" FromRole="CheckedResumeUsers" ToRole="EmployersInfo" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EmployersInfo" Relationship="Resume_DBModel.FK_CheckedResumeUsers_EmployersInfo1" FromRole="CheckedResumeUsers" ToRole="EmployersInfo" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_CheckedResumeUsers_SearchersInfo" FromRole="CheckedResumeUsers" ToRole="SearchersInfo" />
         </EntityType>
         <EntityType Name="EducationGrade">
@@ -598,7 +598,7 @@
             <PropertyRef Name="IdEducatePlace" />
           </Key>
           <Property Name="IdEducatePlace" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="PlaceOfEducation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DateOfStartEducation" Type="DateTime" Precision="0" />
           <Property Name="DateOfEndEducation" Type="DateTime" Precision="0" />
@@ -609,16 +609,16 @@
             <PropertyRef Name="IdEmployer" />
           </Key>
           <Property Name="IdEmployer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameOfOrganization" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameOfOrganization" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CheckedResumeUsers" Relationship="Resume_DBModel.FK_CheckedResumeUsers_EmployersInfo" FromRole="EmployersInfo" ToRole="CheckedResumeUsers" />
+          <NavigationProperty Name="CheckedResumeUsers" Relationship="Resume_DBModel.FK_CheckedResumeUsers_EmployersInfo1" FromRole="EmployersInfo" ToRole="CheckedResumeUsers" />
           <NavigationProperty Name="Users" Relationship="Resume_DBModel.FK_EmployersInfo_Users" FromRole="EmployersInfo" ToRole="Users" />
         </EntityType>
         <EntityType Name="Languages">
           <Key>
             <PropertyRef Name="IdLanguage" />
           </Key>
-          <Property Name="IdLanguage" Type="Int32" Nullable="false" />
+          <Property Name="IdLanguage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TitleLanguage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserLanguages" Relationship="Resume_DBModel.FK_UserLanguages_Languages" FromRole="Languages" ToRole="UserLanguages" />
         </EntityType>
@@ -627,7 +627,7 @@
             <PropertyRef Name="IdPhotoLink" />
           </Key>
           <Property Name="IdPhotoLink" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="PhotoLink" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_LinkForPhoto_SearchersInfo" FromRole="LinkForPhoto" ToRole="SearchersInfo" />
         </EntityType>
@@ -636,7 +636,7 @@
             <PropertyRef Name="IdPrevJob" />
           </Key>
           <Property Name="IdPrevJob" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="DateOfStartPreviousJob" Type="DateTime" Precision="0" />
           <Property Name="DateOfEndPreviousJob" Type="DateTime" Precision="0" />
           <Property Name="NameOfPreviousJob" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -652,9 +652,9 @@
         </EntityType>
         <EntityType Name="SearchersInfo">
           <Key>
-            <PropertyRef Name="IdUser" />
+            <PropertyRef Name="IdSearcher" />
           </Key>
-          <Property Name="IdUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Surname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -696,7 +696,7 @@
             <PropertyRef Name="IdUserCategory" />
           </Key>
           <Property Name="IdUserCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="IdCategory" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Categories" Relationship="Resume_DBModel.FK_UserCategories_Categories" FromRole="UserCategories" ToRole="Categories" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_UserCategories_SearchersInfo" FromRole="UserCategories" ToRole="SearchersInfo" />
@@ -706,7 +706,7 @@
             <PropertyRef Name="IdUserComputerSkills" />
           </Key>
           <Property Name="IdUserComputerSkills" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="ComputerSkill" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_UserComputerSkills_SearchersInfo" FromRole="UserComputerSkills" ToRole="SearchersInfo" />
         </EntityType>
@@ -715,7 +715,7 @@
             <PropertyRef Name="IdUserCourse" />
           </Key>
           <Property Name="IdUserCourse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="Course" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CourseDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_UserCourses_SearchersInfo" FromRole="UserCourses" ToRole="SearchersInfo" />
@@ -725,7 +725,7 @@
             <PropertyRef Name="UserEducationGradeId" />
           </Key>
           <Property Name="UserEducationGradeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="IdEducationGrade" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EducationGrade" Relationship="Resume_DBModel.FK_UserEducationGrade_EducationGrade" FromRole="UserEducationGrade" ToRole="EducationGrade" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_UserEducationGrade_SearchersInfo" FromRole="UserEducationGrade" ToRole="SearchersInfo" />
@@ -735,7 +735,7 @@
             <PropertyRef Name="IdUserLanguage" />
           </Key>
           <Property Name="IdUserLanguage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="IdSearcher" Type="Int32" Nullable="false" />
           <Property Name="LanguagesId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Languages" Relationship="Resume_DBModel.FK_UserLanguages_Languages" FromRole="UserLanguages" ToRole="Languages" />
           <NavigationProperty Name="SearchersInfo" Relationship="Resume_DBModel.FK_UserLanguages_SearchersInfo" FromRole="UserLanguages" ToRole="SearchersInfo" />
@@ -758,10 +758,10 @@
           <End Type="Resume_DBModel.AdditionalInfo" Role="AdditionalInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="AdditionalInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -777,7 +777,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CheckedResumeUsers_EmployersInfo">
+        <Association Name="FK_CheckedResumeUsers_EmployersInfo1">
           <End Type="Resume_DBModel.EmployersInfo" Role="EmployersInfo" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -798,10 +798,10 @@
           <End Type="Resume_DBModel.CheckedResumeUsers" Role="CheckedResumeUsers" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="CheckedResumeUsers">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -824,10 +824,10 @@
           <End Type="Resume_DBModel.EducationPlace" Role="EducationPlace" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="EducationPlace">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -866,10 +866,10 @@
           <End Type="Resume_DBModel.LinkForPhoto" Role="LinkForPhoto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="LinkForPhoto">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -880,10 +880,10 @@
           <End Type="Resume_DBModel.PreviousJobs" Role="PreviousJobs" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="PreviousJobs">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -906,10 +906,10 @@
           <End Type="Resume_DBModel.UserCategories" Role="UserCategories" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserCategories">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -920,10 +920,10 @@
           <End Type="Resume_DBModel.UserComputerSkills" Role="UserComputerSkills" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserComputerSkills">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -934,10 +934,10 @@
           <End Type="Resume_DBModel.UserCourses" Role="UserCourses" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserCourses">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -948,10 +948,10 @@
           <End Type="Resume_DBModel.UserEducationGrade" Role="UserEducationGrade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserEducationGrade">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -962,10 +962,10 @@
           <End Type="Resume_DBModel.UserLanguages" Role="UserLanguages" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SearchersInfo">
-              <PropertyRef Name="IdUser" />
+              <PropertyRef Name="IdSearcher" />
             </Principal>
             <Dependent Role="UserLanguages">
-              <PropertyRef Name="UserId" />
+              <PropertyRef Name="IdSearcher" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -980,7 +980,7 @@
               <MappingFragment StoreEntitySet="AdditionalInfo">
                 <ScalarProperty Name="DriverLicense" ColumnName="DriverLicense" />
                 <ScalarProperty Name="PersonalQualities" ColumnName="PersonalQualities" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdAddInfo" ColumnName="IdAddInfo" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -996,7 +996,7 @@
           <EntitySetMapping Name="CheckedResumeUsers">
             <EntityTypeMapping TypeName="Resume_DBModel.CheckedResumeUsers">
               <MappingFragment StoreEntitySet="CheckedResumeUsers">
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdEmployer" ColumnName="IdEmployer" />
                 <ScalarProperty Name="IdUserChecked" ColumnName="IdUserChecked" />
               </MappingFragment>
@@ -1016,7 +1016,7 @@
                 <ScalarProperty Name="DateOfEndEducation" ColumnName="DateOfEndEducation" />
                 <ScalarProperty Name="DateOfStartEducation" ColumnName="DateOfStartEducation" />
                 <ScalarProperty Name="PlaceOfEducation" ColumnName="PlaceOfEducation" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdEducatePlace" ColumnName="IdEducatePlace" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1042,7 +1042,7 @@
             <EntityTypeMapping TypeName="Resume_DBModel.LinkForPhoto">
               <MappingFragment StoreEntitySet="LinkForPhoto">
                 <ScalarProperty Name="PhotoLink" ColumnName="PhotoLink" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdPhotoLink" ColumnName="IdPhotoLink" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1053,7 +1053,7 @@
                 <ScalarProperty Name="NameOfPreviousJob" ColumnName="NameOfPreviousJob" />
                 <ScalarProperty Name="DateOfEndPreviousJob" ColumnName="DateOfEndPreviousJob" />
                 <ScalarProperty Name="DateOfStartPreviousJob" ColumnName="DateOfStartPreviousJob" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdPrevJob" ColumnName="IdPrevJob" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1084,7 +1084,7 @@
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1103,7 +1103,7 @@
             <EntityTypeMapping TypeName="Resume_DBModel.UserCategories">
               <MappingFragment StoreEntitySet="UserCategories">
                 <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdUserCategory" ColumnName="IdUserCategory" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1112,7 +1112,7 @@
             <EntityTypeMapping TypeName="Resume_DBModel.UserComputerSkills">
               <MappingFragment StoreEntitySet="UserComputerSkills">
                 <ScalarProperty Name="ComputerSkill" ColumnName="ComputerSkill" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdUserComputerSkills" ColumnName="IdUserComputerSkills" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1122,7 +1122,7 @@
               <MappingFragment StoreEntitySet="UserCourses">
                 <ScalarProperty Name="CourseDate" ColumnName="CourseDate" />
                 <ScalarProperty Name="Course" ColumnName="Course" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdUserCourse" ColumnName="IdUserCourse" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1131,7 +1131,7 @@
             <EntityTypeMapping TypeName="Resume_DBModel.UserEducationGrade">
               <MappingFragment StoreEntitySet="UserEducationGrade">
                 <ScalarProperty Name="IdEducationGrade" ColumnName="IdEducationGrade" />
-                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="UserEducationGradeId" ColumnName="UserEducationGradeId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1140,7 +1140,7 @@
             <EntityTypeMapping TypeName="Resume_DBModel.UserLanguages">
               <MappingFragment StoreEntitySet="UserLanguages">
                 <ScalarProperty Name="LanguagesId" ColumnName="LanguagesId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="IdSearcher" ColumnName="IdSearcher" />
                 <ScalarProperty Name="IdUserLanguage" ColumnName="IdUserLanguage" />
               </MappingFragment>
             </EntityTypeMapping>

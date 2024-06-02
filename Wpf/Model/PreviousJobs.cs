@@ -15,7 +15,7 @@ namespace Wpf.Model
     public partial class PreviousJobs
     {
         public int IdPrevJob { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public Nullable<System.DateTime> DateOfStartPreviousJob { get; set; }
         public Nullable<System.DateTime> DateOfEndPreviousJob { get; set; }
         public string NameOfPreviousJob { get; set; }

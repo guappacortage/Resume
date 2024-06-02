@@ -45,5 +45,13 @@ namespace Wpf.View
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
+            }
+        }
     }
 }

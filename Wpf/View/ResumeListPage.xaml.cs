@@ -76,7 +76,7 @@ namespace Wpf.View
             usercategories = db.context.UserCategories.Where(x => x.IdCategory == (int)CategoryComboBox.SelectedValue).ToList();
             foreach (var category in usercategories)
             {
-                searchersInfo.AddRange(db.context.SearchersInfo.Where(x => x.IdUser == category.IdUser).ToList());
+                searchersInfo.AddRange(db.context.SearchersInfo.Where(x => x.IdSearcher == category.IdSearcher).ToList());
             }
             SearchersListView.ItemsSource = searchersInfo;
         }
@@ -85,7 +85,7 @@ namespace Wpf.View
         {
             Image activeElement = sender as Image;
             SearchersInfo activeSearcher = activeElement.DataContext as SearchersInfo;
-            int idSearcher = activeSearcher.IdUser;
+            int idSearcher = activeSearcher.IdSearcher;
             this.NavigationService.Navigate(new ResumePage(idSearcher));
         }
 
@@ -97,7 +97,7 @@ namespace Wpf.View
                 {
                     Image activeElement = sender as Image;
                     SearchersInfo activeSearcher = activeElement.DataContext as SearchersInfo;
-                    int idSearcher = activeSearcher.IdUser;
+                    int idSearcher = activeSearcher.IdSearcher;
                     SearcherInfoVM EditStatus = new SearcherInfoVM();
                     EditStatus.EditStatus(idSearcher, 1);
                     MessageBox.Show("Вы успешно отметили резюме как подходящее вашей компании. Возвращение на главную страницу");
@@ -122,7 +122,7 @@ namespace Wpf.View
                 {
                     Image activeElement = sender as Image;
                     SearchersInfo activeSearcher = activeElement.DataContext as SearchersInfo;
-                    int idSearcher = activeSearcher.IdUser;
+                    int idSearcher = activeSearcher.IdSearcher;
                     this.NavigationService.Navigate(new EditResumePage(idSearcher));
                 }
                 else
@@ -144,7 +144,7 @@ namespace Wpf.View
                 {
                     Image activeElement = sender as Image;
                     SearchersInfo activeSearcher = activeElement.DataContext as SearchersInfo;
-                    int idSearcher = activeSearcher.IdUser;
+                    int idSearcher = activeSearcher.IdSearcher;
                     MessageBoxResult rez = MessageBox.Show($"Вы уверены что хотите удалить пользователя \"{activeSearcher.Name}" + $" {activeSearcher.Surname}" + $" {activeSearcher.Patronymic}\"?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     if (rez == MessageBoxResult.Yes)
                     {
@@ -162,6 +162,14 @@ namespace Wpf.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.NavigationService.CanGoBack)
+            {
+                this.NavigationService.GoBack();
             }
         }
     }

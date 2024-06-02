@@ -15,7 +15,7 @@ namespace Wpf.Model
     public partial class EducationPlace
     {
         public int IdEducatePlace { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public string PlaceOfEducation { get; set; }
         public Nullable<System.DateTime> DateOfStartEducation { get; set; }
         public Nullable<System.DateTime> DateOfEndEducation { get; set; }

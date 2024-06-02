@@ -15,7 +15,7 @@ namespace Wpf.Controllers
         {
                 UserComputerSkills newUser = new UserComputerSkills()
                 {
-                    IdUser = iduser,
+                    IdSearcher = iduser,
                     ComputerSkill = skill
                 };
                 db.context.UserComputerSkills.Add(newUser);
@@ -24,7 +24,7 @@ namespace Wpf.Controllers
 
         public void EditComputerSkills(int iduser, string skill)
         {
-            var objComputerSkills = db.context.UserComputerSkills.Where(x => x.IdUser == iduser).SingleOrDefault();
+            var objComputerSkills = db.context.UserComputerSkills.Where(x => x.IdSearcher == iduser).SingleOrDefault();
             if (objComputerSkills != null)
             {
                 objComputerSkills.ComputerSkill = skill;
@@ -33,7 +33,7 @@ namespace Wpf.Controllers
             {
                 UserComputerSkills newComputerSkill = new UserComputerSkills()
                 {
-                    IdUser=iduser,
+                    IdSearcher = iduser,
                     ComputerSkill = skill
                 };
                 db.context.UserComputerSkills.Add(newComputerSkill);

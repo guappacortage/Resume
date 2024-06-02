@@ -16,7 +16,7 @@ namespace Wpf.Controllers
             {
                 UserLanguages newUser = new UserLanguages()
                 {
-                    UserId = iduser,
+                    IdSearcher = iduser,
                     LanguagesId = languageid
                 };
                 db.context.UserLanguages.Add(newUser);
@@ -25,7 +25,7 @@ namespace Wpf.Controllers
        }
        public void EditLanguages(int iduser, List<int> languageidslist)
        {
-            var objLanguages = db.context.UserLanguages.Where(x => x.UserId == iduser).ToList();
+            var objLanguages = db.context.UserLanguages.Where(x => x.IdSearcher == iduser).ToList();
             for (int i = 0; i<objLanguages.Count; i++)
             {
                 objLanguages[i].LanguagesId = languageidslist[i];

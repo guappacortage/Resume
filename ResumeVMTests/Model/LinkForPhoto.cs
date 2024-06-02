@@ -15,7 +15,7 @@ namespace ResumeVMTests.Model
     public partial class LinkForPhoto
     {
         public int IdPhotoLink { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public byte[] PhotoLink { get; set; }
     
         public virtual SearchersInfo SearchersInfo { get; set; }

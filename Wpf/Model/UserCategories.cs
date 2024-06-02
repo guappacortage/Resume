@@ -15,7 +15,7 @@ namespace Wpf.Model
     public partial class UserCategories
     {
         public int IdUserCategory { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public int IdCategory { get; set; }
     
         public virtual Categories Categories { get; set; }

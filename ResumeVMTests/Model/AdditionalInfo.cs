@@ -15,7 +15,7 @@ namespace ResumeVMTests.Model
     public partial class AdditionalInfo
     {
         public int IdAddInfo { get; set; }
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public string PersonalQualities { get; set; }
         public string DriverLicense { get; set; }
     

@@ -29,7 +29,7 @@ namespace Wpf.Model
             this.UserLanguages = new HashSet<UserLanguages>();
         }
     
-        public int IdUser { get; set; }
+        public int IdSearcher { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }

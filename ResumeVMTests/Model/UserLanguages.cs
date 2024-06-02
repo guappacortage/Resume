@@ -15,7 +15,7 @@ namespace ResumeVMTests.Model
     public partial class UserLanguages
     {
         public int IdUserLanguage { get; set; }
-        public int UserId { get; set; }
+        public int IdSearcher { get; set; }
         public int LanguagesId { get; set; }
     
         public virtual Languages Languages { get; set; }

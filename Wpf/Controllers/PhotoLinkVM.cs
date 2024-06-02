@@ -19,7 +19,7 @@ namespace Wpf.Controllers
         {
             LinkForPhoto newPhoto = new LinkForPhoto()
             {
-                IdUser = iduser,
+                IdSearcher = iduser,
                 PhotoLink = imagecode
             };
             db.context.LinkForPhoto.Add(newPhoto);
