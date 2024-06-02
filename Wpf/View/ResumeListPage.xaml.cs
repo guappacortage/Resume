@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +25,7 @@ namespace Wpf.View
     {
         Core db = new Core();
         List <SearchersInfo> searchersInfo = new List <SearchersInfo> ();
+        List<SearchersInfo> searchersInfoComboBox = new List<SearchersInfo>();
         List<Categories> categories = new List<Categories>();
         List<UserCategories> usercategories = new List<UserCategories>();
         int idRole = Properties.Settings.Default.idRole;
@@ -33,10 +35,12 @@ namespace Wpf.View
             if (idRole == 2)
             {
                 searchersInfo = db.context.SearchersInfo.Where(x => x.Status != 1).ToList();
+                searchersInfoComboBox = db.context.SearchersInfo.Where(x => x.Status != 1).ToList();
             }
             else
             {
                 searchersInfo = db.context.SearchersInfo.ToList();
+                searchersInfoComboBox = db.context.SearchersInfo.ToList();
             }
             categories = db.context.Categories.ToList();
             SearchersListView.ItemsSource = searchersInfo;
@@ -45,7 +49,6 @@ namespace Wpf.View
 
         private void TextBoxSearchTextChanged(object sender, TextChangedEventArgs e)
         {
-
             if (TypeOfSearchComboBox.SelectedIndex == 0)
             {
                 searchersInfo = searchersInfo.Where(x => Convert.ToString(x.PassportNumber).Contains(TBoxSearch.Text.ToLower())).ToList();
@@ -72,13 +75,13 @@ namespace Wpf.View
         private void ComboBoxCategorySelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             usercategories.Clear();
-            searchersInfo.Clear();
+            searchersInfoComboBox.Clear();
             usercategories = db.context.UserCategories.Where(x => x.IdCategory == (int)CategoryComboBox.SelectedValue).ToList();
             foreach (var category in usercategories)
             {
-                searchersInfo.AddRange(db.context.SearchersInfo.Where(x => x.IdSearcher == category.IdSearcher).ToList());
+                searchersInfoComboBox.AddRange(db.context.SearchersInfo.Where(x => x.IdSearcher == category.IdSearcher).ToList());
             }
-            SearchersListView.ItemsSource = searchersInfo;
+            SearchersListView.ItemsSource = searchersInfoComboBox;
         }
 
         private void OpenClick(object sender, MouseButtonEventArgs e)
