@@ -93,7 +93,7 @@ namespace Wpf.Controllers
             addAdditionalInfo.AddNewAdditionalInfo(IdSearcher, personal, driverlicense);
             if (coursetext.Count > 0)
             {
-                CoursesVM addCourses = new CoursesVM();
+                UserCoursesVM addCourses = new UserCoursesVM();
                 addCourses.AddNewCourses(IdSearcher, coursetext, coursedate);
             }
             if (pastjobslisttext.Count > 0)
@@ -162,7 +162,7 @@ namespace Wpf.Controllers
             newAddInfo.EditAdditionalInfo(iduser, personal, driverlicense);
             if (coursetext.Count > 0)
             {
-                CoursesVM newCourses = new CoursesVM();
+                UserCoursesVM newCourses = new UserCoursesVM();
                 newCourses.EditCourses(iduser, coursetext, coursedate);
             }
             PreviousJobsVM newPastJobs = new PreviousJobsVM();

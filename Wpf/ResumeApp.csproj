@@ -73,9 +73,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controllers\AdditionalInfoVM.cs" />
+    <Compile Include="Controllers\CoursesVM.cs" />
+    <Compile Include="Controllers\EducationGradeVM.cs" />
+    <Compile Include="Controllers\LanguagesVM.cs" />
+    <Compile Include="Controllers\RoleVM.cs" />
     <Compile Include="Controllers\UserComputerSkillsVM.cs" />
     <Compile Include="Controllers\CheckedResumeUsersVM.cs" />
-    <Compile Include="Controllers\CoursesVM.cs" />
+    <Compile Include="Controllers\UserCoursesVM.cs" />
     <Compile Include="Controllers\UserEducationGradeVM.cs" />
     <Compile Include="Controllers\EducationPlacesVM.cs" />
     <Compile Include="Controllers\UserLanguagesVM.cs" />

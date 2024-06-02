@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wpf.Controllers
 {
-    public class CoursesVM
+    public class LanguagesVM
     {
     }
 }
