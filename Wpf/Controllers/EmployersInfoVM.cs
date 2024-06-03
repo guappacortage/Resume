@@ -10,7 +10,14 @@ namespace Wpf.Controllers
     public class EmployersInfoVM
     {
         Core db = new Core();
-
+        /// <summary>
+        /// Метод для проверки ввода полей при добавлении работодателя
+        /// </summary>
+        /// <param name="nameoforganization">Название организации</param>
+        /// <param name="login">Логин</param>
+        /// <param name="password">Пароль</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public bool EmployerCheck(string nameoforganization, string login, string password)
         {
             if (String.IsNullOrEmpty(nameoforganization))
@@ -27,6 +34,13 @@ namespace Wpf.Controllers
             }
             return true;
         }
+
+        /// <summary>
+        /// Метод для добавления работодателя
+        /// </summary>
+        /// <param name="nameoforganization">Название организации</param>
+        /// <param name="login">Логин</param>
+        /// <param name="password">Пароль</param>
         public void AddNewEmployer(string nameoforganization, string login, string password)
         {
             EmployersInfo employersInfo = new EmployersInfo()

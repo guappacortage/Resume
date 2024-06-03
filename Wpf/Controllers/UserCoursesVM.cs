@@ -10,7 +10,12 @@ namespace Wpf.Controllers
     public class UserCoursesVM
     {
         Core db = new Core();
-
+        /// <summary>
+        /// Метод для добавления курсов выбранных пользователем
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="courseslist">Список курсов</param>
+        /// <param name="datecourseslist">Список дат прохождения курсов</param>
         public void AddNewCourses(int iduser, List<string> courseslist, List<DateTime> datecourseslist)
         {
             for (int i = 0; i < courseslist.Count; i++)
@@ -25,7 +30,12 @@ namespace Wpf.Controllers
                 db.context.SaveChanges();
             }
         }
-
+        /// <summary>
+        /// Метод для изменения курсов выбранных пользователем
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="courseslist">Список курсов</param>
+        /// <param name="datecourseslist">Список дат прохождения курсов</param>
         public void EditCourses(int iduser, List<string> courseslist, List<DateTime> datecourseslist)
         {
             var objCourses = db.context.UserCourses.Where(x => x.IdSearcher == iduser).ToList();

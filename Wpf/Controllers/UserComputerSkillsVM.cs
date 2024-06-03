@@ -10,7 +10,11 @@ namespace Wpf.Controllers
     public class UserComputerSkillsVM
     {
         Core db = new Core();
-
+        /// <summary>
+        /// Метод для добавления компьютерных навыков
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="skill">Компьютерные навыки</param>
         public void AddNewComputerSkills(int iduser, string skill)
         {
                 UserComputerSkills newUser = new UserComputerSkills()
@@ -21,7 +25,11 @@ namespace Wpf.Controllers
                 db.context.UserComputerSkills.Add(newUser);
                 db.context.SaveChanges();
             }
-
+        /// <summary>
+        /// Метод для изменения компьютерных навыков
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="skill">Компьютерные навыки</param>
         public void EditComputerSkills(int iduser, string skill)
         {
             var objComputerSkills = db.context.UserComputerSkills.Where(x => x.IdSearcher == iduser).SingleOrDefault();

@@ -10,6 +10,11 @@ namespace Wpf.Controllers
     public class CheckedResumeUsersVM
     {
         Core db = new Core();
+        /// <summary>
+        /// Метод для добавления нового резюме отмеченного как подходящее работодателю
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="idemployer">ID работодателя</param>
         public void AddNewCheckedResume(int iduser, int idemployer)
         {
             CheckedResumeUsers checkedResumeUsers = new CheckedResumeUsers()

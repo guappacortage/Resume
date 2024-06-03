@@ -246,7 +246,6 @@ namespace Wpf.View
                     object filename = $@"C:\Users\Public\Резюме {TBlockName.Text} {TBlockSurname.Text} {TBlockPatronimyc.Text}.docx";
                     document.SaveAs(ref filename);
                     document.Close(ref missing, ref missing, ref missing);
-                    document = null;
                     MessageBox.Show("Вы успешно сохранили резюме. Возвращение к странице списка резюме");
                     this.NavigationService.Navigate(new ResumeListPage());
             }

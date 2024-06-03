@@ -62,6 +62,39 @@ namespace Wpf.Controllers
             }
             return true;
         }
+        /// <summary>
+        /// Метод для добавления соискателя
+        /// </summary>
+        /// <param name="name">Имя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="patronymic">Отчество</param>
+        /// <param name="adress">Адрес</param>
+        /// <param name="phone">Номер телефона</param>
+        /// <param name="email">Электронная почта</param>
+        /// <param name="city">Город</param>
+        /// <param name="birthday">Дата рождения</param>
+        /// <param name="familystatus">Семейное положение</param>
+        /// <param name="passportseria">Серия паспорта</param>
+        /// <param name="passportnumber">Номер паспорта</param>
+        /// <param name="children">Наличие детей</param>
+        /// <param name="gender">Пол</param>
+        /// <param name="army">Служба в армии</param>
+        /// <param name="personal">Личные качества</param>
+        /// <param name="driverlicense">Водительская лицензия</param>
+        /// <param name="pastjobslisttext">Список названий предыдущих мест работы</param>
+        /// <param name="liststartdatejob">Список дат начала предыдущих место работы</param>
+        /// <param name="listenddatejob">Список дат окончания предыдущих место работы</param>
+        /// <param name="educationplacestext">Список мест образования</param>
+        /// <param name="liststartdateeducationplaces">Список дат начала образования</param>
+        /// <param name="listenddateeducationplaces">Список дат окончания образования</param>
+        /// <param name="idgrade">ID степени образования</param>
+        /// <param name="languagesid">Список с ID выбранных языков</param>
+        /// <param name="coursetext">Список с учебными курсами</param>
+        /// <param name="coursedate">Список с датами прохождения курсов</param>
+        /// <param name="skill">Компьютерные навыки</param>
+        /// <param name="idcategory">ID сферы деятельности</param>
+        /// <param name="imagecode">Двоичный код фотографии</param>
+        /// <param name="checkimageadded">Переменная проверяющая загружена ли фотография</param>
         public void AddSearcher(string name, string surname, string patronymic, string adress, string phone, string email, string city, DateTime birthday, string familystatus,
             int passportseria, int passportnumber, string children, string gender, string army, string personal, string driverlicense, List<string> pastjobslisttext, List<DateTime> liststartdatejob, List<DateTime> listenddatejob,
             List<string> educationplacestext, List<DateTime> liststartdateeducationplaces, List<DateTime> listenddateeducationplaces, int idgrade, List<int> languagesid, List<string> coursetext,
@@ -129,7 +162,40 @@ namespace Wpf.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Метод для изменения соискателя
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="name">Имя</param>
+        /// <param name="surname">Фамилия</param>
+        /// <param name="patronymic">Отчество</param>
+        /// <param name="adress">Адрес</param>
+        /// <param name="phone">Номер телефона</param>
+        /// <param name="email">Электронная почта</param>
+        /// <param name="city">Город</param>
+        /// <param name="birthday">Дата рождения</param>
+        /// <param name="familystatus">Семейное положение</param>
+        /// <param name="passportseria">Серия паспорта</param>
+        /// <param name="passportnumber">Номер паспорта</param>
+        /// <param name="children">Наличие детей</param>
+        /// <param name="gender">Пол</param>
+        /// <param name="army">Служба в армии</param>
+        /// <param name="personal">Личные качества</param>
+        /// <param name="driverlicense">Водительская лицензия</param>
+        /// <param name="pastjobslisttext">Список названий предыдущих мест работы</param>
+        /// <param name="liststartdatejob">Список дат начала предыдущих место работы</param>
+        /// <param name="listenddatejob">Список дат окончания предыдущих место работы</param>
+        /// <param name="educationplacestext">Список мест образования</param>
+        /// <param name="liststartdateeducationplaces">Список дат начала образования</param>
+        /// <param name="listenddateeducationplaces">Список дат окончания образования</param>
+        /// <param name="idgrade">ID степени образования</param>
+        /// <param name="languagesid">Список с ID выбранных языков</param>
+        /// <param name="coursetext">Список с учебными курсами</param>
+        /// <param name="coursedate">Список с датами прохождения курсов</param>
+        /// <param name="skill">Компьютерные навыки</param>
+        /// <param name="idcategory">ID сферы деятельности</param>
+        /// <param name="imagecode">Двоичный код фотографии</param>
+        /// <param name="checkimageadded">Переменная проверяющая загружена ли фотография</param>
         public void EditSearcher(int iduser, string name, string surname, string patronymic, string adress, string phone, string email, string city, DateTime birthday, string familystatus,
             int passportseria, int passportnumber, string children, string gender, string army, string personal, string driverlicense, List<string> pastjobslisttext, List<DateTime> liststartdatejob, List<DateTime> listenddatejob,
             List<string> educationplacestext, List<DateTime> liststartdateeducationplaces, List<DateTime> listenddateeducationplaces, int idgrade, List<int> languagesid, List<string> coursetext,

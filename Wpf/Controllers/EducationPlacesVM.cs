@@ -10,6 +10,13 @@ namespace Wpf.Controllers
     public class EducationPlacesVM
     {
         Core db = new Core();
+        /// <summary>
+        /// Метод для добавления учебных мест
+        /// </summary>
+        /// <param name="searherId">ID соискателя</param>
+        /// <param name="textseducationplaces">Список учебных заведений</param>
+        /// <param name="liststarteducationplaces">Список дат начала обучения</param>
+        /// <param name="listendeducationplaces">Список дат окончания обучения</param>
         public void AddNewEducationPlaces(int searherId, List<string> textseducationplaces, List<DateTime> liststarteducationplaces, List<DateTime> listendeducationplaces)
         {
             for (int i = 0; i < textseducationplaces.Count; i++)
@@ -25,6 +32,13 @@ namespace Wpf.Controllers
                 db.context.SaveChanges();
             }
         }
+        /// <summary>
+        /// Метод для изменения учебных мест
+        /// </summary>
+        /// <param name="searherId">ID соискателя</param>
+        /// <param name="textseducationplaces">Список учебных заведений</param>
+        /// <param name="liststarteducationplaces">Список дат начала обучения</param>
+        /// <param name="listendeducationplaces">Список дат окончания обучения</param>
         public void EditEducationPlaces(int searherId, List<string> textseducationplaces, List<DateTime> liststarteducationplaces, List<DateTime> listendeducationplaces)
         {
             var objEducationPlaces = db.context.EducationPlace.Where(x => x.IdSearcher == searherId).ToList();

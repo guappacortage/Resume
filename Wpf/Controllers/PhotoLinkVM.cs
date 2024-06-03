@@ -14,7 +14,11 @@ namespace Wpf.Controllers
     public class PhotoVM
     {
         Core db = new Core();
-
+        /// <summary>
+        /// Метод для добавления фотографии
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="imagecode">Двоичный код фотографии</param>
         public void AddNewPhoto(int iduser, byte [] imagecode)
         {
             LinkForPhoto newPhoto = new LinkForPhoto()

@@ -10,6 +10,13 @@ namespace Wpf.Controllers
     internal class UsersVM
     {
         Core db = new Core();
+        /// <summary>
+        /// Метод для проверки правильности логина и пароля
+        /// </summary>
+        /// <param name="username">Имя пользователя</param>
+        /// <param name="password">Пароль</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public bool CheckAuth(string username, string password)
         {
 

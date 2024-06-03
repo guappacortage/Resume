@@ -10,6 +10,11 @@ namespace Wpf.Controllers
     public class UserCategoriesVM
     {
         Core db = new Core();
+        /// <summary>
+        /// Метод добавления сферы деятельности для пользователя
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="categoryid">ID сферы деятельности</param>
         public void AddUserCategory (int iduser, int categoryid)    
         {
             UserCategories newUserCategories = new UserCategories()
@@ -20,7 +25,11 @@ namespace Wpf.Controllers
             db.context.UserCategories.Add(newUserCategories);
             db.context.SaveChanges();
         }
-
+        /// <summary>
+        /// Метод изменения сферы деятельности для пользователя
+        /// </summary>
+        /// <param name="iduser">ID соискателя</param>
+        /// <param name="categoryid">ID сферы деятельности</param>
         public void EditUserCategory(int iduser, int categoryid)
         {
             var objCategory = db.context.UserCategories.Where(x => x.IdSearcher == iduser).FirstOrDefault();

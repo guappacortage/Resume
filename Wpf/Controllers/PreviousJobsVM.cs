@@ -10,6 +10,13 @@ namespace Wpf.Controllers
     public class PreviousJobsVM
     {
         Core db = new Core();
+        /// <summary>
+        /// Метод для добавления предыдущих мест работы
+        /// </summary>
+        /// <param name="searherId">ID соискателя</param>
+        /// <param name="textspastjobs">Список с названиями предыдущих мест работы</param>
+        /// <param name="liststartjob">Список дат начала предыдущих мест работы</param>
+        /// <param name="listendjob">Список дат окончания предыдущих мест работы</param>
         public void AddNewPastJobs(int searherId, List<string> textspastjobs, List<DateTime> liststartjob, List<DateTime> listendjob)
         {
             for (int i = 0; i < textspastjobs.Count; i++)
@@ -25,6 +32,13 @@ namespace Wpf.Controllers
                 db.context.SaveChanges();
             }
         }
+        /// <summary>
+        /// Метод для изменения предыдущих мест работы
+        /// </summary>
+        /// <param name="searherId">ID соискателя</param>
+        /// <param name="textspastjobs">Список с названиями предыдущих мест работы</param>
+        /// <param name="liststartjob">Список дат начала предыдущих мест работы</param>
+        /// <param name="listendjob">Список дат окончания предыдущих мест работы</param>
         public void EditPastJobs(int iduser, List<string> textspastjobs, List<DateTime> liststartjob, List<DateTime> listendjob)
         {
             var objPastJobs = db.context.PreviousJobs.Where(x => x.IdSearcher == iduser).ToList();
