@@ -67,6 +67,7 @@ namespace Wpf.View
         {
             try
             {
+                CreateCourse();
                 CreatePastJob();
                 CreateEducationPlace();
                 CreateLanguage();
